@@ -37,3 +37,10 @@ class User(var name: String, var age: Int){
         // this makes call to the above constructor, based on the number of parameters passed
     }
 }
+
+class Dog(var name: String = "Tommy", var breed: String, var age: Int = 1){ // primary constructors with defaults
+
+    fun describe(){
+        println("Dog name: $name, breed: $breed, age: $age")
+    }
+}

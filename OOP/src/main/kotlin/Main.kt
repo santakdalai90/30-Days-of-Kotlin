@@ -23,4 +23,11 @@ fun main(args: Array<String>) {
 
     val user4 = User()        // using secondary constructor
     println("User name: ${user4.name} has group: ${user4.group}")
+    println("----------------------------")
+
+    var dog1 = Dog(breed = "labrador")
+    dog1.describe()
+
+    var dog2 = Dog(name = "Kaalu", breed = "Indian Pariah", age=3)
+    dog2.describe()
 }
