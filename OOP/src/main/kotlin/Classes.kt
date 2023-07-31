@@ -44,3 +44,21 @@ class Dog(var name: String = "Tommy", var breed: String, var age: Int = 1){ // p
         println("Dog name: $name, breed: $breed, age: $age")
     }
 }
+
+class Employee(var name: String, var dept: String, salary: Int) {
+    var salary = salary
+        get() = field       // use 'field' to avoid recursion and to back the property
+
+        set(value) {
+            if (value <= 1000) {
+                println("Setting min salary as 1000")
+                field = 1000
+            } else {
+                field = value
+            }
+        }
+
+    fun describe() {
+        println("Employee --> name: $name, department: $dept, salary: $salary")
+    }
+}

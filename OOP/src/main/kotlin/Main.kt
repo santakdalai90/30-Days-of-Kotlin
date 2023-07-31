@@ -30,4 +30,12 @@ fun main(args: Array<String>) {
 
     var dog2 = Dog(name = "Kaalu", breed = "Indian Pariah", age=3)
     dog2.describe()
+    println("----------------------------")
+
+    var emp1 = Employee("Pamela", "HR", 7000)
+    emp1.describe()
+
+    var emp2 = Employee("Jane", "Operations", 700)
+    emp2.salary = 700       // setter would be called when we explicitly set the value
+    emp2.describe()
 }
