@@ -8,7 +8,7 @@ class Car (var name: String, var model: String, var color: String, var doors: In
     }
 }
 
-class User(var name: String, age: Int){
+class User(var name: String, var age: Int){
     var group: String
     // initializer block - runs after the primary constructor
     init {
@@ -27,4 +27,13 @@ class User(var name: String, age: Int){
         // is the order in which they are defined
     }
 
+    constructor(name: String) : this(name, 40) {
+        // secondary constructor
+        // has to call the primary constructor
+        // cannot declare parameters
+    }
+
+    constructor() : this("John Doe") {
+        // this makes call to the above constructor, based on the number of parameters passed
+    }
 }

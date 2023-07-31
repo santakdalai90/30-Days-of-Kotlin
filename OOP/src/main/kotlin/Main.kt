@@ -17,4 +17,10 @@ fun main(args: Array<String>) {
 
     val user2 = User("Steve", 23)
     println("User name: ${user2.name} has group: ${user2.group}")
+
+    val user3 = User("Veronica")        // using secondary constructor
+    println("User name: ${user3.name} has group: ${user3.group}")
+
+    val user4 = User()        // using secondary constructor
+    println("User name: ${user4.name} has group: ${user4.group}")
 }
