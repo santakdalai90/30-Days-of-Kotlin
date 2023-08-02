@@ -87,3 +87,24 @@ class Calculator() {
         fun mul(a: Int, b: Int) = a * b
     }
 }
+
+class Database private constructor() {
+    // singleton class
+    
+    companion object {
+        private var instance: Database? = null
+        fun getInstance(): Database? {
+            if (instance == null) {
+                instance = Database()
+            }
+            return instance
+        }
+    }
+}
+
+object Config {
+    // Singletons can also be created this way
+    init {
+        println("Configuration created")
+    }
+}

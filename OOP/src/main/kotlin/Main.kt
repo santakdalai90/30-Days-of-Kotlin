@@ -52,5 +52,14 @@ fun main(args: Array<String>) {
     println("Result of multiplication = ${Calculator.mul(5645, 132)}")
     // variable from companion object
     println("Value of Pi = ${Calculator.Pi}")
+    println("----------------------------")
+
+    var dbInstance = Database.getInstance()
+    println(dbInstance)
+    var dbInstance2 = Database.getInstance()
+    println(dbInstance2)
+
+    println(Config)
+    println(Config)
 
 }
