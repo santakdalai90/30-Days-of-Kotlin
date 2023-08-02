@@ -62,3 +62,14 @@ class Employee(var name: String, var dept: String, salary: Int) {
         println("Employee --> name: $name, department: $dept, salary: $salary")
     }
 }
+
+class Flower(var name: String, var color: String, var petals: Int){
+    // var season: String   // you cannot define a property like this here without initializing.
+    // To have a property defined here which can be initialized later you must use lateinit keyword.
+    // You can however have a parameter here without initializing, only if that parameter is of a primitive type,
+    // but since most types in Kotlin are classes, like Int, String, etc, it's better that we use lateinit keyword
+    // for such cases.
+    lateinit var season: String
+
+    override fun toString(): String = "Flower $name blooms in $season season. Its color is $color and it has $petals petals"
+}

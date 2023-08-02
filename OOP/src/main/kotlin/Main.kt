@@ -38,4 +38,9 @@ fun main(args: Array<String>) {
     var emp2 = Employee("Jane", "Operations", 700)
     emp2.salary = 700       // setter would be called when we explicitly set the value
     emp2.describe()
+    println("----------------------------")
+
+    var flower = Flower("Marrigold", "Yellow", 200)
+    flower.season = "Winter"    // a lateinit property must be initialized else you'd get an exception
+    println(flower)
 }
