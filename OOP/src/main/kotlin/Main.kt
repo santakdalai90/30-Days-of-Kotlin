@@ -1,11 +1,11 @@
 fun main(args: Array<String>) {
-    val car1 = Car("Tesla" , "CyberTruck", "Marsh Green",5)
+    val car1 = Car("Tesla", "CyberTruck", "Marsh Green", 5)
     println("Car Name = ${car1.name}")
     car1.move()
     car1.stop()
     println("----------------------------")
 
-    val car2 = Car("Tata", "Nexon","Blue",5)
+    val car2 = Car("Tata", "Nexon", "Blue", 5)
 
     println("Car Name = ${car2.name}")
     car2.move()
@@ -28,7 +28,7 @@ fun main(args: Array<String>) {
     var dog1 = Dog(breed = "labrador")
     dog1.describe()
 
-    var dog2 = Dog(name = "Kaalu", breed = "Indian Pariah", age=3)
+    var dog2 = Dog(name = "Kaalu", breed = "Indian Pariah", age = 3)
     dog2.describe()
     println("----------------------------")
 
@@ -43,4 +43,14 @@ fun main(args: Array<String>) {
     var flower = Flower("Marrigold", "Yellow", 200)
     flower.season = "Winter"    // a lateinit property must be initialized else you'd get an exception
     println(flower)
+    println("----------------------------")
+
+    var calc = Calculator()
+    println("Result of sum = ${calc.sum(54646, 156189)}")
+
+    // function from companion object
+    println("Result of multiplication = ${Calculator.mul(5645, 132)}")
+    // variable from companion object
+    println("Value of Pi = ${Calculator.Pi}")
+
 }
