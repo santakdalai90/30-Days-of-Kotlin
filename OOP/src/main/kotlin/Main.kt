@@ -61,5 +61,15 @@ fun main(args: Array<String>) {
 
     println(Config)
     println(Config)
+    println("----------------------------")
 
+    var c1 = Cat("Tom", "British", 1)
+    var c2 = Cat("Oscar", "Persian", 2)
+
+    val c3 by lazy {    // Lazy initialization. Only vals can be created, not vars.
+        Cat("Leo", "Ragdoll", 3)
+    }
+
+    println("Initializing c3")
+    println(c3.name)    // Object is initalized only when the object is used
 }

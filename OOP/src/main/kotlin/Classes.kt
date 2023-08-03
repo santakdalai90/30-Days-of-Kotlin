@@ -108,3 +108,9 @@ object Config {
         println("Configuration created")
     }
 }
+
+class Cat(var name: String, var breed: String, var age: Int) {
+    init {
+        println("Cat: $name is created")
+    }
+}
