@@ -72,4 +72,28 @@ fun main(args: Array<String>) {
 
     println("Initializing c3")
     println(c3.name)    // Object is initalized only when the object is used
+    println("----------------------------")
+
+    println(Direction.NORTH)
+    println(Direction.WEST)
+
+    for (p in PropertyType.values()) {
+        println("${p.name} - ${p.maxPeople}")
+    }
+
+    PropertyType.PALACE.printData()
+
+    val pp = PropertyType.LAND
+
+    when (pp) {
+        PropertyType.LAND -> println("Nice you can do farming on the land")
+        else -> println("You can stay at your property")
+    }
+
+    val pp2 = PropertyType.valueOf("LAND")
+
+    when (pp) {
+        PropertyType.LAND -> println("Nice you can do farming on the land")
+        else -> println("You can stay at your property")
+    }
 }

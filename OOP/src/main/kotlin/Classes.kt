@@ -114,3 +114,22 @@ class Cat(var name: String, var breed: String, var age: Int) {
         println("Cat: $name is created")
     }
 }
+
+enum class Direction {
+    NORTH, 
+    EAST,
+    SOUTH,
+    WEST
+}
+
+enum class PropertyType(var pType: String, var maxPeople: Int) {
+    LAND("land", 20),
+    BHK("bhk", 2),
+    VILLA("villa", 5),
+    PALACE("palace", 100);      // last enum entry needs a semi-colon, if there are any functions following it.
+
+    fun printData() {
+        println("Property type is $pType and it can be occupied by max $maxPeople persons")
+    }
+}
+
