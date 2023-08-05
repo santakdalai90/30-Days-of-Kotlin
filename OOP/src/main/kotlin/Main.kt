@@ -100,4 +100,15 @@ fun main(args: Array<String>) {
 
     var sl = ShoppingList(arrayOf("Potato", "Apple", "Detergent", "Oil"))
     sl.ListItems().displayItems(2)
+    println("----------------------------")
+
+    var harryAccount = BankAccount("Harry")
+    harryAccount.deposit(1000.23)
+    harryAccount.deposit(235.23)
+    harryAccount.deposit(-32.23)
+    harryAccount.withdraw(50.00)
+    harryAccount.withdraw(70.00)
+    harryAccount.withdraw(-95.63)
+    harryAccount.withdraw(5000.35)
+    println("Final balance: $${harryAccount.calcBalance()}")
 }

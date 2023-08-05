@@ -90,7 +90,7 @@ class Calculator() {
 
 class Database private constructor() {
     // singleton class
-    
+
     companion object {
         private var instance: Database? = null
         fun getInstance(): Database? {
@@ -116,7 +116,7 @@ class Cat(var name: String, var breed: String, var age: Int) {
 }
 
 enum class Direction {
-    NORTH, 
+    NORTH,
     EAST,
     SOUTH,
     WEST
@@ -138,5 +138,41 @@ class ShoppingList(val items: Array<String>) {
         fun displayItems(pos: Int) {
             println(items[pos])
         }
+    }
+}
+
+class BankAccount(var name: String) {
+    private var balance: Double = 0.0
+    private var transactions = mutableListOf<Double>()
+    fun deposit(amount: Double) {
+        if (amount > 0) {
+            transactions.add(amount)
+            balance += amount
+            println("$amount deposited successfully. New Balance: $balance")
+        } else {
+            println("Invalid deposit amount")
+        }
+    }
+
+    fun withdraw(amount: Double) {
+        if (amount < 0) {
+            println("Invalid deposit amount")
+            return
+        }
+        if (balance - amount > 0) {
+            transactions.add(-amount)
+            balance -= amount
+            println("$amount withdrawn successfully. New Balance: $balance")
+        } else {
+            println("Insufficient balance")
+        }
+    }
+
+    fun calcBalance(): Double {
+        this.balance = 0.0
+        for (t in transactions) {
+            balance += t
+        }
+        return balance
     }
 }
