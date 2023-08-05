@@ -1,10 +1,20 @@
-class Car(var name: String, var model: String, var color: String, var doors: Int) {
-    fun move() {
-        println("The car $name is moving")
+open class Vehicle(var name: String, var color: String) {
+    open fun move() {
+        println("$name is moving")
     }
 
     fun stop() {
-        println("The car $name has stopped")
+        println("$name has stopped")
+    }
+}
+
+class Car(name: String, color: String, var doors: Int) : Vehicle(name, color) {
+
+}
+
+class Plane(name: String, color: String, var wings: Int) : Vehicle(name, color) {
+    override fun move() {
+        println("$name is flying")
     }
 }
 

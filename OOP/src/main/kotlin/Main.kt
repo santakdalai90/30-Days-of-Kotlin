@@ -1,15 +1,29 @@
 fun main(args: Array<String>) {
-    val car1 = Car("Tesla", "CyberTruck", "Marsh Green", 5)
+    val car1 = Car("Tesla", "Marsh Green", 5)
     println("Car Name = ${car1.name}")
     car1.move()
     car1.stop()
     println("----------------------------")
 
-    val car2 = Car("Tata", "Nexon", "Blue", 5)
+    val car2 = Car("Tata", "Blue", 5)
 
     println("Car Name = ${car2.name}")
     car2.move()
     car2.stop()
+    println("----------------------------")
+
+    val plane1 = Plane("Boeing", "Blue", 4)
+
+    println("Plane Name = ${plane1.name}")
+    plane1.move()
+    plane1.stop()
+    println("----------------------------")
+
+    val plane2 = Plane("AirBus", "Pink", 2)
+
+    println("Plane Name = ${plane2.name}")
+    plane2.move()
+    plane2.stop()
     println("----------------------------")
 
     val user = User("Lisa", 16)
