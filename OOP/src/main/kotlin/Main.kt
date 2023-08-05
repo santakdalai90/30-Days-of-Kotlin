@@ -96,4 +96,8 @@ fun main(args: Array<String>) {
         PropertyType.LAND -> println("Nice you can do farming on the land")
         else -> println("You can stay at your property")
     }
+    println("----------------------------")
+
+    var sl = ShoppingList(arrayOf("Potato", "Apple", "Detergent", "Oil"))
+    sl.ListItems().displayItems(2)
 }

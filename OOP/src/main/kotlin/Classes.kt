@@ -133,3 +133,10 @@ enum class PropertyType(var pType: String, var maxPeople: Int) {
     }
 }
 
+class ShoppingList(val items: Array<String>) {
+    inner class ListItems() {
+        fun displayItems(pos: Int) {
+            println(items[pos])
+        }
+    }
+}
