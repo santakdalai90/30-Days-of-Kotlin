@@ -125,4 +125,14 @@ fun main(args: Array<String>) {
     harryAccount.withdraw(-95.63)
     harryAccount.withdraw(5000.35)
     println("Final balance: $${harryAccount.calcBalance()}")
+    println("----------------------------")
+
+    val view = View()
+    view.draw()
+
+    val button = Button("Login", "Center")
+    button.draw()
+
+    val roundButton = RoundButton("Sign Up", "Top-Left", 5)
+    roundButton.draw()
 }

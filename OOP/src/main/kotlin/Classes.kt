@@ -1,3 +1,5 @@
+import java.awt.ComponentOrientation
+
 open class Vehicle(var name: String, var color: String) {
     open fun move() {
         println("$name is moving")
@@ -15,6 +17,26 @@ class Car(name: String, color: String, var doors: Int) : Vehicle(name, color) {
 class Plane(name: String, color: String, var wings: Int) : Vehicle(name, color) {
     override fun move() {
         println("$name is flying")
+    }
+}
+
+open class View() {
+    open fun draw() {
+        println("Drawing the view")
+    }
+}
+
+open class Button(private val text: String, private val orientation: String): View() {
+    override fun draw() {
+        println("Drawing the button with name $text and $orientation")
+        super.draw()
+    }
+}
+
+class RoundButton(text: String, orientation: String, private val radius: Int): Button(text, orientation) {
+    override fun draw() {
+        println("Drawing the round button with radius $radius")
+        super.draw()
     }
 }
 
