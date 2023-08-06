@@ -1,3 +1,5 @@
+import kotlin.Exception
+
 fun main(args: Array<String>) {
     val car1 = Car("Tesla", "Marsh Green", 5)
     println("Car Name = ${car1.name}")
@@ -135,4 +137,16 @@ fun main(args: Array<String>) {
 
     val roundButton = RoundButton("Sign Up", "Top-Left", 5)
     roundButton.draw()
+    println("----------------------------")
+
+    val success = Result.Success("SUCCESS!")
+    val progress = Result.Progress("IN PROGRESS...")
+
+    getData(success)
+    getData(progress)
+
+    val recovError = Result.Error.RecoverableError(Exception("Some Exception"), "RECOVERABLE ERROR!")
+    getData(recovError)
 }
+
+

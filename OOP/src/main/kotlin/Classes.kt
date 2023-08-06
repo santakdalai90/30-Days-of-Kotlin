@@ -1,4 +1,4 @@
-import java.awt.ComponentOrientation
+import kotlin.Exception
 
 open class Vehicle(var name: String, var color: String) {
     open fun move() {
@@ -26,14 +26,14 @@ open class View() {
     }
 }
 
-open class Button(private val text: String, private val orientation: String): View() {
+open class Button(private val text: String, private val orientation: String) : View() {
     override fun draw() {
         println("Drawing the button with name $text and $orientation")
         super.draw()
     }
 }
 
-class RoundButton(text: String, orientation: String, private val radius: Int): Button(text, orientation) {
+class RoundButton(text: String, orientation: String, private val radius: Int) : Button(text, orientation) {
     override fun draw() {
         println("Drawing the round button with radius $radius")
         super.draw()
@@ -206,5 +206,30 @@ class BankAccount(var name: String) {
             balance += t
         }
         return balance
+    }
+}
+
+sealed class Result(private val message: String) {
+    // sealed classes are like enums but each value can be an inherited class in itself,
+    // which in turn can also take parameters.
+    class Success(message: String) : Result(message)
+    sealed class Error(message: String) : Result(message) {
+        // You can also have nested sealed classes inside a sealed class
+        class RecoverableError(var exception: Exception, message: String): Error(message)
+        class NonRecoverableError(var exception: Exception, message: String): Error(message)
+    }
+    class Progress(message: String) : Result(message)
+
+    fun showMessage() {
+        println("Result: $message")
+    }
+}
+
+fun getData(result: Result) {
+    when (result) {
+        is Result.Success -> result.showMessage()
+        is Result.Progress -> result.showMessage()
+        is Result.Error.NonRecoverableError -> result.showMessage()
+        is Result.Error.RecoverableError -> result.showMessage()
     }
 }
