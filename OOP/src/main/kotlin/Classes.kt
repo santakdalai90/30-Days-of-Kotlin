@@ -233,3 +233,23 @@ fun getData(result: Result) {
         is Result.Error.RecoverableError -> result.showMessage()
     }
 }
+
+abstract class Animal() {
+    // abstract classses cannot be initialized
+    // abstract class can have properties
+    abstract fun move()     //abstract functions cannot have body
+    abstract fun eat()
+}
+
+class Cow(var name: String, var color: String): Animal() {
+    // all abstract functions are required to be implemented for the class derived from an abstract class
+    override fun move() {
+
+    }
+
+    override fun eat() {
+        
+    }
+}
+
+
