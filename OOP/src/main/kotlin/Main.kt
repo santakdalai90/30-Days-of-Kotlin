@@ -178,8 +178,19 @@ fun main(args: Array<String>) {
     println(bf2)
     println(bf3)
     println(bf4)
-    // for this to work properly we need to implement equals function in the class under consideration
-    // Note: for primitive types like String, Int, etc both == and === will return true if value matches
+    println("----------------------------")
+
+    val loginButton = BigButton("Login", 1232, object: OnClickListener {
+        override fun onClick(){
+            println("Clicked on Login")
+        }
+    })
+    val signUpButton = BigButton("Sign Up", 46565, object: OnClickListener {
+        override fun onClick(){
+            println("Clicked on Sign Up")
+        }
+    })
+
 }
 
 

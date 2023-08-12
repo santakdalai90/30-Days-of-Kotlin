@@ -314,3 +314,15 @@ class Drone(val name: String, val maxHeight: Int) : Engine {
     }
 
 }
+
+class BigButton(val text: String, val id: Int, onClickListener: OnClickListener)
+
+class ClickListener(): OnClickListener {
+    override fun onClick() {
+
+    }
+}
+
+interface OnClickListener {
+    fun onClick()
+}
