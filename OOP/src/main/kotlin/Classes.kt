@@ -1,5 +1,3 @@
-import kotlin.Exception
-
 open class Vehicle(var name: String, var color: String) {
     open fun move() {
         println("$name is moving")
@@ -10,9 +8,7 @@ open class Vehicle(var name: String, var color: String) {
     }
 }
 
-class Car(name: String, color: String, var doors: Int) : Vehicle(name, color) {
-
-}
+class Car(name: String, color: String, var doors: Int) : Vehicle(name, color)
 
 class Plane(name: String, color: String, var wings: Int) : Vehicle(name, color) {
     override fun move() {
@@ -20,7 +16,7 @@ class Plane(name: String, color: String, var wings: Int) : Vehicle(name, color) 
     }
 }
 
-open class View() {
+open class View {
     open fun draw() {
         println("Drawing the view")
     }
@@ -80,7 +76,6 @@ class Dog(var name: String = "Tommy", var breed: String, var age: Int = 1) { // 
 
 class Employee(var name: String, var dept: String, salary: Int) {
     var salary = salary
-        get() = field       // use 'field' to avoid recursion and to back the property
         set(value) {
             if (value <= 1000) {
                 println("Setting min salary as 1000")
@@ -107,7 +102,7 @@ class Flower(var name: String, var color: String, var petals: Int) {
         "Flower $name blooms in $season season. Its color is $color and it has $petals petals"
 }
 
-class Calculator() {
+class Calculator {
     // normal function and requires an instance of this class to be called
     fun sum(a: Int, b: Int): Int = a + b
 
@@ -166,7 +161,7 @@ enum class PropertyType(var pType: String, var maxPeople: Int) {
 }
 
 class ShoppingList(val items: Array<String>) {
-    inner class ListItems() {
+    inner class ListItems {
         fun displayItems(pos: Int) {
             println(items[pos])
         }
@@ -215,9 +210,10 @@ sealed class Result(private val message: String) {
     class Success(message: String) : Result(message)
     sealed class Error(message: String) : Result(message) {
         // You can also have nested sealed classes inside a sealed class
-        class RecoverableError(var exception: Exception, message: String): Error(message)
-        class NonRecoverableError(var exception: Exception, message: String): Error(message)
+        class RecoverableError(var exception: Exception, message: String) : Error(message)
+        class NonRecoverableError(var exception: Exception, message: String) : Error(message)
     }
+
     class Progress(message: String) : Result(message)
 
     fun showMessage() {
@@ -234,14 +230,14 @@ fun getData(result: Result) {
     }
 }
 
-abstract class Animal() {
+abstract class Animal {
     // abstract classses cannot be initialized
     // abstract class can have properties
     abstract fun move()     //abstract functions cannot have body
     abstract fun eat()
 }
 
-class Cow(var name: String, var color: String): Animal() {
+class Cow(var name: String, var color: String) : Animal() {
     // all abstract functions are required to be implemented for the class derived from an abstract class
     override fun move() {
 
@@ -272,13 +268,49 @@ class Cow(var name: String, var color: String): Animal() {
 
 // you can add `data` keyword to achieve the same functionality as that of Cow class and 
 // you need not define equals() or toString() methods
-data class Buffalo(var name: String, var color: String): Animal() {
-        // all abstract functions are required to be implemented for the class derived from an abstract class
-        override fun move() {
+data class Buffalo(var name: String, var color: String) : Animal() {
+    // all abstract functions are required to be implemented for the class derived from an abstract class
+    override fun move() {
 
-        }
-    
-        override fun eat() {
-    
-        }
+    }
+
+    override fun eat() {
+
+    }
+}
+
+interface Engine {
+    fun start()
+    fun stop()
+}
+
+class FighterJet(val name: String, val wings: Int) : Engine {
+    override fun start() {
+        println("The fighter jat $name is starting the engine")
+    }
+
+    override fun stop() {
+        TODO("Not yet implemented")
+    }
+}
+
+class Truck(val name: String, val wheels: Int) : Engine {
+    override fun start() {
+        println("The truck $name is starting the engine")
+    }
+
+    override fun stop() {
+        TODO("Not yet implemented")
+    }
+}
+
+class Drone(val name: String, val maxHeight: Int) : Engine {
+    override fun start() {
+        println("The drone $name is starting the engine")
+    }
+
+    override fun stop() {
+        TODO("Not yet implemented")
+    }
+
 }
