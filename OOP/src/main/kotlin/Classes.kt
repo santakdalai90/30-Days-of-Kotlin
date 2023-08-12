@@ -326,3 +326,29 @@ class ClickListener(): OnClickListener {
 interface OnClickListener {
     fun onClick()
 }
+
+interface X {
+    fun print()
+}
+
+interface Y {
+    fun print2()
+}
+
+class FirstDelegate: X {
+    override fun print() {
+        TODO("Not yet implemented")
+    }
+
+}
+
+class SecondDelegate: Y {
+    override fun print2() {
+        TODO("Not yet implemented")
+    }
+
+}
+
+// Example of delegation. Delegation allows us to inherit from multiple interface implementations
+class DemoChild: X by FirstDelegate(), Y by SecondDelegate(){
+}
