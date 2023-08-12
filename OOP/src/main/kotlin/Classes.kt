@@ -248,8 +248,37 @@ class Cow(var name: String, var color: String): Animal() {
     }
 
     override fun eat() {
-        
+
+    }
+
+    // implement equals method to check structural equality of the objects
+    override fun equals(other: Any?): Boolean {
+        if (this === other) {
+            return true
+        }
+        if (other is Cow) {
+            return other.name == this.name && other.color == this.color
+        }
+        return false
+    }
+
+    // if you're using this class in a collection then you should also override the hashCode() function
+    // hashCode() is used by maps etc for performance reasons.
+
+    override fun toString(): String {
+        return "Cow(name:$name, color:$color)"
     }
 }
 
+// you can add `data` keyword to achieve the same functionality as that of Cow class and 
+// you need not define equals() or toString() methods
+data class Buffalo(var name: String, var color: String): Animal() {
+        // all abstract functions are required to be implemented for the class derived from an abstract class
+        override fun move() {
 
+        }
+    
+        override fun eat() {
+    
+        }
+}

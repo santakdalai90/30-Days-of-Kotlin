@@ -147,6 +147,39 @@ fun main(args: Array<String>) {
 
     val recovError = Result.Error.RecoverableError(Exception("Some Exception"), "RECOVERABLE ERROR!")
     getData(recovError)
+    println("----------------------------")
+
+    var cow1 = Cow("Magic", "Orange")
+    var cow2 = Cow("Magic", "Orange")
+    var cow3 = Cow("Penny", "White")
+    var cow4 = cow1
+    
+    println(cow1 == cow2)   // check structural equality, i.e., check if contents are matching
+    println(cow1 === cow2)  // check referential equality, i.e., check if objects being compared are the same object in the memory
+    println(cow1 == cow3)
+    println(cow1 === cow4)
+    println(cow1)
+    println(cow2)
+    println(cow3)
+    println(cow4)
+    // for this to work properly we need to implement equals function in the class under consideration
+    // Note: for primitive types like String, Int, etc both == and === will return true if value matches
+
+    var bf1 = Buffalo("Magic", "Orange")
+    var bf2 = Buffalo("Magic", "Orange")
+    var bf3 = Buffalo("Penny", "White")
+    var bf4 = bf1
+    
+    println(bf1 == bf2)   // check structural equality, i.e., check if contents are matching
+    println(bf1 === bf2)  // check referential equality, i.e., check if objects being compared are the same object in the memory
+    println(bf1 == bf3)
+    println(bf1 === bf4)
+    println(bf1)
+    println(bf2)
+    println(bf3)
+    println(bf4)
+    // for this to work properly we need to implement equals function in the class under consideration
+    // Note: for primitive types like String, Int, etc both == and === will return true if value matches
 }
 
 
