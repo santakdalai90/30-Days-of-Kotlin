@@ -19,4 +19,10 @@ fun main(args: Array<String>) {
     val numPairs = listOf("one" to 1, "thirty" to 30, "Ninety Nine" to 99)
     println(numPairs)
     println(numPairs.unzip())
+
+    // association
+    val fruits = listOf("Kiwi", "Dragon Fruit", "Pineapple", "Guava")
+    println(fruits.associateWith { it.length })
+    println(fruits.associateBy { it.first().uppercase() })
+    println(fruits.associateBy(keySelector = {it.first().uppercase()}, valueTransform = {it.uppercase()}))
 }
