@@ -25,4 +25,16 @@ fun main(args: Array<String>) {
     println(fruits.associateWith { it.length })
     println(fruits.associateBy { it.first().uppercase() })
     println(fruits.associateBy(keySelector = {it.first().uppercase()}, valueTransform = {it.uppercase()}))
+
+    // flatten
+    var non = listOf(setOf(2,3,5), setOf(7, 11, 13), setOf(17, 19, 23))
+    println(non[0].elementAt(2))
+    for (nums in non) {
+        for (n in nums) {
+            print("$n\t")
+        }
+        println()
+    }
+    val numFlat = non.flatten()
+    println(numFlat)
 }
