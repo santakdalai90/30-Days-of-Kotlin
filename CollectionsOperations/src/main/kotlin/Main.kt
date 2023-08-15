@@ -76,4 +76,9 @@ fun main(args: Array<String>) {
     println(fruits.any { it.endsWith("e") })
     println(fruits.none { it.endsWith("w") })
     println(fruits.all { it.length > 4 })
+
+    // plus and minus operator
+    println(fruits + "Banana")
+    println(fruits - "Apple")
+    println(fruits - listOf("Pineapple", "Avacado"))
 }
