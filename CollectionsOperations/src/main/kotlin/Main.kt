@@ -21,7 +21,7 @@ fun main(args: Array<String>) {
     println(numPairs.unzip())
 
     // Association
-    val fruits = listOf("Kiwi", "Dragon Fruit", "Pineapple", "Guava", "Apple")
+    val fruits = listOf("Kiwi", "Dragon Fruit", "Pineapple", "Guava", "Apple", "Dates", "Papaya", "Grapes")
     println(fruits.associateWith { it.length })
     println(fruits.associateBy { it.first().uppercase() })
     println(fruits.associateBy(keySelector = { it.first().uppercase() }, valueTransform = { it.uppercase() }))
@@ -81,4 +81,8 @@ fun main(args: Array<String>) {
     println(fruits + "Banana")
     println(fruits - "Apple")
     println(fruits - listOf("Pineapple", "Avacado"))
+
+    // grouping
+    println(fruits.groupBy { it.first().uppercase() })
+    println(fruits.groupBy(keySelector = { it.last() }, valueTransform = { it.uppercase() }))
 }
