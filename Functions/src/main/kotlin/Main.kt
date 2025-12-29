@@ -25,6 +25,24 @@ fun main() {
     println(simpleInterest(10000.00, 5.5))
 
     println("Average = %.2f".format(average(56.89, 123.34, 90284098.234, 529057.209578)))
+
+    // calling extension function
+    val name = "Santak"
+    println(name.reverseUsingBuilder())
+
+    // calling overloaded extension function
+    val num = 45
+    println(num.reverse())
+
+    // calling weather function using lambda
+    val delhiWeather = GetWeather("Delhi") { cityName ->
+        val coordinateMap = mapOf(
+            "Delhi" to "NorthIndia", "Chennai" to "SouthIndia", "Sweden" to "NorthEurope"
+        )
+        coordinateMap[cityName] ?: "Unknown"
+    }
+
+    println("Weather of delhi is $delhiWeather")
 }
 
 fun showMessage() {
@@ -61,7 +79,7 @@ fun sendMessage(name: String = "John Doe", message: String = "Good Day!") {
 // you may use an expression as well for the default value of a parameter
 // Note: A parameter with default value cannot be followed by a parameter not having default value
 fun simpleInterest(principal: Double, time: Double, rate: Double = getDefaultRate()): Double {
-    return (principal*rate*time) / 100
+    return (principal * rate * time) / 100
 }
 
 fun getDefaultRate() = 7.5
@@ -76,4 +94,26 @@ fun average(vararg numbers: Double): Double {
     }
 
     return res / count
+}
+
+// extension function
+fun String.reverseUsingBuilder(): String {
+    return buildString {
+        for (i in this@reverseUsingBuilder.lastIndex downTo 0) {
+            append(this@reverseUsingBuilder[i])
+        }
+    }
+}
+
+// overloaded extension function
+fun Int.reverse(): Int {
+    return this.toString().reverseUsingBuilder().toInt()
+}
+
+// function using lambda as parameter
+fun GetWeather(cityName: String, CoordinateProvider: (String) -> String): String {
+    val weatherMap = mapOf(
+        "NorthIndia" to "Hot and Dry", "SouthIndia" to "Hot and Humid", "NorthEurope" to "Cold"
+    )
+    return weatherMap[CoordinateProvider(cityName)]?: "Weather Data Not Found"
 }
